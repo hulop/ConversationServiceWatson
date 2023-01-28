@@ -2,7 +2,7 @@
 	"api_key": "$(CONV_API_KEY)",
 	"watson_config": 
 	{
-		"endpoint": "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/%s/message?version=22018-05-21",
+		"endpoint": "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/%s/message?version=2018-05-21",
 		"ignoreCert": false,
 		"username": "$(CONV_WATSON_USERNAME)",
 		"password": "$(CONV_WATSON_PASSWORD)",
