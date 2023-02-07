@@ -1,0 +1,265 @@
+{
+  "intents": [
+    {
+      "intent": "أين",
+      "examples": [
+        {
+          "text": "أي"
+        },
+        {
+          "text": "أين"
+        },
+        {
+          "text": "كيف"
+        },
+        {
+          "text": "كيف اوصل"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Destination",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "المخرج",
+          "synonyms": [
+            "باب الخروج",
+            "مخرج"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "المدخل",
+          "synonyms": [
+            "باب",
+            "مدخل"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "درج",
+          "synonyms": [
+            "الدرج",
+            "سلم"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "قاعة",
+          "synonyms": [
+            "القاعة",
+            "صالة"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "مختبر",
+          "synonyms": [
+            "المختبر",
+            "لاب",
+            "لابرتري",
+            "لابرتوري"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "مصعد",
+          "synonyms": [
+            "اصنصیر",
+            "ایلیفیتر",
+            "ایلیفیتور",
+            "لفت"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "مكتب",
+          "synonyms": []
+        }
+      ]
+    },
+    {
+      "entity": "Finish",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "اوكي",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "باي",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "تمام",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "وصلت",
+          "synonyms": []
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "init",
+      "output": {},
+      "context": {
+        "dest": "",
+        "navi": false,
+        "node_map": {
+          "درج": "EDITOR_node_1669368768776",
+          "قاعة": "EDITOR_node_1657042044659",
+          "مصعد": "EDITOR_node_1657042040922",
+          "مكتب": "EDITOR_node_1658427988576",
+          "مختبر": "EDITOR_node_1669368712342",
+          "المخرج": "EDITOR_node_1657042064423",
+          "المدخل": "EDITOR_node_1657042024157"
+        },
+        "dest_info": {
+          "name": "",
+          "pron": "",
+          "nodes": "",
+          "pr_short": ""
+        },
+        "agent_name": "HULOP"
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_1_1486114964410"
+      },
+      "conditions": "true",
+      "dialog_node": "init"
+    },
+    {
+      "type": "standard",
+      "output": {},
+      "conditions": "conversation_start",
+      "dialog_node": "node_1_1486114964410",
+      "previous_sibling": "init"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "\nمرحبا بك ، يمكنك تحديد الوجهة من \"المدخل\" و \"مختبر\" و \"مصعد\" و \"قاعة\" و \"الدرج\" و \"مكتب\" و\"المخرج\" .  أين تريد أن تذهب؟\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1486114964410",
+      "dialog_node": "node_1_1488851739192",
+      "previous_sibling": "node_2_1488851739592"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "أنا آسف لم أستطع فهم طلبك.  يمكنك تحديد الوجهة من \"المدخل\" و \"مختبر\" و \"مصعد\" و \"قاعة\" و \"الدرج\" و \"مكتب\" و\"المخرج\" .  أين تريد أن تذهب؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "node_2_1486114979274",
+      "previous_sibling": "node_6_1486116701765"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": " مرحبا بك ، يمكنك تحديد الوجهة من \"المدخل\" و \"مختبر\" و \"مصعد\" و \"قاعة\" و \"الدرج\" و \"مكتب\" و\"المخرج\" .  أين تريد أن تذهب؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1486114964410",
+      "conditions": " $elapsed_time < 60000",
+      "dialog_node": "node_2_1488851739592"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "اسمح لي بالبحث عن  <? @Destination ?>."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "context": {
+        "dest": "@Destination",
+        "navi": true,
+        "dest_info": {
+          "name": "@Destination",
+          "pron": "",
+          "nodes": "<? $node_map[@Destination] ?>",
+          "pr_short": ""
+        }
+      },
+      "conditions": "@Destination",
+      "dialog_node": "node_5_1486115817438",
+      "previous_sibling": "node_1_1486114964410"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Bye-bye. I'm looking forward to serving you again."
+          ]
+        }
+      },
+      "context": {
+        "finish": true
+      },
+      "conditions": "@Finish",
+      "dialog_node": "node_6_1486116701765",
+      "previous_sibling": "node_5_1486115817438"
+    }
+  ],
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "name": "Arabic",
+  "language": "en",
+  "description": ""
+}
