@@ -1,0 +1,67 @@
+{
+	"api_key": "$(CONV_API_KEY)",
+
+	"watson_config": 
+	{
+		"endpoint": "https://gateway.watsonplatform.net/conversation/api/v1/workspaces/%s/message?version=2016-09-20",
+		"ignoreCert": false,
+		"username": "$(CONV_WATSON_USERNAME)",
+		"password": "$(CONV_WATSON_PASSWORD)",
+		"workspace_ja": "$(CONV_WATSON_WORKSPACE_JA)",
+		"workspace_en": "$(CONV_WATSON_WORKSPACE_EN)",
+		"workspace_ko": "$(CONV_WATSON_WORKSPACE_KO)",
+		"workspace_zh-CN": "$(CONV_WATSON_WORKSPACE_ZH_CN)"
+	},
+
+	"logging_config": 
+	{
+		"endpoint": "$(CONV_MAP_SERVICE)/api/log",
+		"api_key": "$(CONV_MAP_APIKEY)"
+	},
+
+	"conversation_config": "$(CONV_MAP_SERVICE)/config/conversation_config.json",
+
+	"directory_config": 
+	{
+		"endpoint_directory": "$(HULOP_QUERY_SERVICE)directory?user=directory-user&lat=%f&lng=%f&dist=4000&lang=ja,en,ko,zh-CN&landmarks=no&categories=yes",
+		"endpoint_last_updated": "$(CONV_MAP_SERVICE)/routesearch?user=directory-user&action=last_updated",
+		"endpoint_disabled_nodes": "$(CONV_MAP_SERVICE)/routesearch?user=directory-user&action=disabled_nodes&lang=en&lat=%f&lng=%f&dist=4000",
+		"default_location": {
+			"lat": 35.6785,
+			"lng": 139.7876
+		},
+		"distance" : 4000
+	},
+
+	"repeat_matches":
+	[
+	],
+
+	"repeat_starts":
+	[
+		"Pardon",
+		"I beg your pardon",
+		"Once more",
+		"I can't hear you",
+		"Can you repeat",
+		"Could you repaet",
+		"Would you repeat"
+	],
+
+	"repeat_contains":
+	[
+		"聞き取れません",
+		"聞き取れない",
+		"聞き取れん",
+		"聞こえません",
+		"聞こえない",
+		"聞こえん",
+		"もう一回",
+		"もう一度",
+		"もういっぺん"
+	],
+
+	"repeat_ends":
+	[
+	]
+}

@@ -1,0 +1,5 @@
+{
+	"ERROR": "Error",
+	"TRY_AGAIN": "A connection error occurred. Please say it again.",
+	"TRY_AGAIN_LATER": "Conversation service temporarily unavailable. Please try again later."
+}

@@ -4,6 +4,7 @@ This implementation enables to use a [Watson Conversation Service](https://www.i
 Please import 2 projects (ConversationServiceWatson and SampleConversation) by using Eclipse IDE for Java EE Developers Mars2 or later.
 
 - *ConversationServiceWatson* folder includes Conversation Service application.
+- *ConversationServiceWatsonEx* folder includes extended version of conversation service application example that can work with [hulop-directory](https://github.com/hulop/MapService/tree/master/hulop-directory).
 - *SampleConversation* folder contains sample conversation workspaces for Watson Conversation Service.
 
 ## Prerequisites
